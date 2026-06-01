@@ -11,7 +11,7 @@ const ADIDisplay = ({ adi }: Props) => {
         if (adi >= 100) return "blue";
         if (Math.abs(adi) <= 5) return "green";
         
-        const ratio = math.abs(adi) / 100;
+        const ratio = Math.abs(adi) / 100;
         const r = 0;
         const g = Math.round(255 * (1 - ratio));
         const b = Math.round(255 * ratio);
