@@ -1,7 +1,7 @@
-import { Request, Response } from 'express';
+ import { Request, Response, NextFunction } from 'express';
 import Flight from '../models/Flight';
 
-export const saveFlight = async (req:Request, res:Response): Promise<void> => {
+export const saveFlight = async (req:Request, res:Response, next:NextFunction): Promise<void> => {
     try {
         const { altitude, his, adi } = req.body;
         
@@ -13,7 +13,7 @@ export const saveFlight = async (req:Request, res:Response): Promise<void> => {
             data: flight 
         });
     } catch (error) {
-        res.status(500).json({ error: "Failed to save flight data" });
+        next(error);
     }
 };
 

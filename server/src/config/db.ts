@@ -14,6 +14,7 @@ const connectDB = async (): Promise<void> => {
     } catch (error) {
         console.error("MongoDB connection failed:", error);
 
+        // אם אין חיבור למסד הנתונים עוצרים את הרת לגמרי.
         process.exit(1); 
     }
 };

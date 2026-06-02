@@ -1,28 +1,15 @@
-import { useState } from 'react';
-
 interface Props {
     altitude: number;
+    mode: "text" | "visual";
 }
 
-const AltitudeDisplay = ({ altitude }: Props) => {
-    const [mode, setMode] = useState<"text" | "visual">("visual");
+const AltitudeDisplay = ({ altitude, mode }: Props) => {
 
-    const percentage = (altitude / 3000) * 100;
+    // זה כדי להגביל את המיקום של החץ בין 3% ל 97% כדי שלא יחרוג מהסרגל
+    const position = Math.min(97, Math.max(3, (altitude / 3000) * 100));
 
     return (
         <div className="display-container">
-
-            <div className="mode-buttons">
-                <button
-                className={mode === "text" ? "active" : ""}
-                 onClick={() => setMode("text")}>
-                    TEXT
-                </button>
-                <button
-                className={mode === "visual" ? "active" : ""}
-                 onClick={() => setMode("visual")}>
-                    VISUAL</button>
-            </div>
 
             {mode === "text" && (
                 <div className="text-display">
@@ -32,19 +19,21 @@ const AltitudeDisplay = ({ altitude }: Props) => {
             )}
 
             {mode === "visual" && (
-                <div className="visual-display">
-                    <div className="scale">
-                        <span>3000</span>
-                        <span>2000</span>
-                        <span>1000</span>
-                        <span>0</span>
+                <div className="altitude-visual">
+                    <div className="altitude-scale">
+                        <div>3000</div>
+                        <div>2000</div>
+                        <div>1000</div>
+                        <div>0</div>
                     </div>
+                    <div className="altitude-bar-container">
+                      <div className="altitude-bar">
 
-                    <div className="bar-container">
-                        <div className="bar-fill"
-                        style={{ height: `${percentage}%` }}
-                        />
+                        <div className="altitude-arrow"
+                        style={{ bottom: `${position}%` }}/>
+                         
                     </div>
+                </div>
                 </div>
             )}
         </div>

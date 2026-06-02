@@ -1,27 +1,12 @@
-import { useState } from 'react';
-
 interface Props {
     his: number;
+    mode: "text" | "visual";
 }
 
-const HISDisplay = ({ his }: Props) => {
-    const [mode, setMode] = useState<"text" | "visual">("visual");
+const HISDisplay = ({ his, mode }: Props) => {
 
     return (
         <div className="display-container">
-
-            <div className="mode-buttons">
-                <button
-                className={mode === "text" ? "active" : ""}
-                 onClick={() => setMode("text")}>
-                    TEXT
-                </button>
-                <button
-                className={mode === "visual" ? "active" : ""}
-                 onClick={() => setMode("visual")}>
-                    VISUAL
-                </button>
-            </div>
 
             {mode === "text" && (
                 <div className="text-display">
