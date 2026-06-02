@@ -1,8 +1,6 @@
+import Dashboard from './components/Dashboard';
+
 function App() {
-  return (
-    <div>
-      <h1>Flight Monitor</h1>
-    </div>
-  )
+  return <Dashboard />;
 }
 export default App

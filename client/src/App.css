@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: white;
+  color: black;
+  padding: 20px;
+}
+
+.dashboard {
+  max-width: 1200px;
+  margin: 20px auto;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* כפתורי TEXT/VISUAL/+ */
+.mode-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+/* טופס קלט */
+
+.input-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.input-form {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 350px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.field label {
+  width: 70px;
+  font-size: 14px;
+  color: gray;
+}
+
+.field input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid lightgray;
+  font-size: 14px;
+}
+
+.send-btn {
+  background: dodgerblue;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: darkgray;
+  color: white;
+  cursor: pointer;
+}
+
+button.active {
+  background: dodgerblue;
+}
+
+.displays {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.display-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.text-display {
+  text-align: center;
+  font-size: 15px;
+  border: 2px solid lightgray;
+  border-radius: 40px;
+  padding: 10px;
+  min-width: 120px;
+  min-height: 40px;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Altitude */
+.altitude-visual {
+  display: flex;
+  height: 200px;
+}
+
+.altitude-scale {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 12px;
+  color: gray;
+  text-align: right;
+  margin-right: 6px;
+}
+
+.altitude-bar-container {
+  position: relative;
+  height: 200px;
+}
+
+.altitude-bar {
+  position: relative;
+  border: 2px solid black;
+  width: 40px;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.altitude-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 38px solid dodgerblue;
+  right: 0;
+  transform: translateY(50%);
+}
+
+/* HIS */
+.his-visual {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+.compass-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid gray;
+  transition: transform 0.3s ease;
+}
+
+.compass-label {
+  position: absolute;
+  font-size: 12px;
+  color: black;
+}
+
+.compass-label.top {
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.compass-label.right {
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.compass-label.bottom {
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.compass-label.left {
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.compass-needle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  width: 2px;
+  height: 40%;
+  background: orange;
+}
+
+/* ADI  */
+.adi-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
